@@ -1,0 +1,43 @@
+jobs:
+  - name: daily model runs
+    targetName: dev
+    schedule:
+      type: cron
+      entries: ["0 12 * * *"]
+    timeout: 2h30m
+    retryOnFailure: true
+    steps:
+      - name: run models
+        command: dbt run
+      - name: test models
+        command: dbt test
+  - name: refresh specific models nightly
+    schedule:
+      type: cron
+      entries: ["0 0 * * *"]
+    steps:
+      - name: run models
+        command: dbt run --select +my_first_model +my_second_model
+  - name: multiple steps in job
+    targetName: dev
+    schedule:
+      type: cron
+      entries: ["0 12 * * *"]
+    timeout: 2h30m
+    steps:
+      - name: try source freshness
+        command: 'dbt source freshness --select source:sqlserver'
+      - name: fully refresh this model
+        command: dbt run --select +employee_shifts --full-refresh
+      - name: test this models
+        command: dbt test --select +employee_shifts
+  - name: connector-integrated-schedule
+    schedule:
+      type: integrated
+      integrations:
+        - abject_normative
+        - prodigy_vaso
+    steps:
+      - name: run models
+        command: dbt run --models ...
+
