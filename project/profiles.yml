@@ -1,0 +1,13 @@
+# example profiles.yml file
+xxiv_profile:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: xxiv-domus-database-1.cvpuoucjkrcg.us-east-1.rds.amazonaws.com
+      user: postgres
+      password: electrica
+      port: 5432
+      dbname: xxivdomus
+      schema: dbt_output
+      threads: 4
