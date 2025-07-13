@@ -2,7 +2,7 @@
 xxiv_profile:
   target: dev
   outputs:
-    dev:
+    prod:
       type: postgres
       host: xxiv-domus-database-1.cvpuoucjkrcg.us-east-1.rds.amazonaws.com
       user: postgres
