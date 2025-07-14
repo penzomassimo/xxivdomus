@@ -19,3 +19,9 @@ models:
         data_tests:
           - unique
           - not_null
+
+sources:
+  - name: octorate_prenotazioni
+    schema: google_drive   # <-- schema where the table lives in the warehouse
+    tables:
+      - name: octorate_prenotazioni_confermate_sheet_1
