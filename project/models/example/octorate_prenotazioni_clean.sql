@@ -20,6 +20,7 @@ select
 	extract(month from to_date(u.data_partenza, 'DD/MM/YYYY')) as data_partenza_month,
 	extract(year from to_date(u.data_partenza, 'DD/MM/YYYY')) as data_partenza_year,
 	
+	to_date(u.data_arrivo, 'DD/MM/YYYY') - to_date(u.data_creazione, 'DD/MM/YYYY') as booking_window,
 	u.cliente,
 	u.codice,
 	u.sorgente,
