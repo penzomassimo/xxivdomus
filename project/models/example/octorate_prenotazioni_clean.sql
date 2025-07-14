@@ -41,6 +41,6 @@ select
 	u.bambini,
 	u.neonati
 		
-from {{ source('xxiv_source', 'octorate_prenotazioni_confermate_sheet_1') }} as u
+from {{ source('octorate_prenotazioni', 'octorate_prenotazioni_confermate_sheet_1') }} as u
 
 
