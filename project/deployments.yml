@@ -2,8 +2,9 @@ jobs:
   - name: daily model runs
     targetName: dev
     schedule:
-      type: cron
-      entries: ["0 12 * * *"]
+      type: integrated
+      integrations:
+        - 
     timeout: 2h30m
     retryOnFailure: true
     steps:
