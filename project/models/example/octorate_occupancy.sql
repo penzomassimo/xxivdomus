@@ -15,11 +15,11 @@ select
 	
 	1 as suite_capacity,
 	e.junior_suites as suite_available,
-	(2 - e.junior_suites) as suite_sold,
+	(1 - e.junior_suites) as suite_sold,
 
 	1 as single_capacity,
 	e.single_rooms as single_available,
-	(2 - e.single_rooms) as single_sold,
+	(1 - e.single_rooms) as single_sold,
 	
 	e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms as total_availability,
 	
