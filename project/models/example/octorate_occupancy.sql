@@ -22,6 +22,7 @@ select
 	(1 - e.single_rooms) as single_sold,
 	
 	e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms as total_availability,
+	(6 - (e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms)) as total_sold,
 	
 	round((6 - (e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms))/6::numeric, 2) as daily_occupancy 
 		
