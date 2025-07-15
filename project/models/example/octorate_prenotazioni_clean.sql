@@ -33,7 +33,7 @@ select
 	REPLACE(REPLACE(u.importo_incassato, '.', ''), ',', '.')::numeric as importo_incassato,
 	REPLACE(REPLACE(u.totale, '.', ''), ',', '.')::numeric / u.notti as adr,
 	u.tassa_di_soggiorno,
-	u.commissione,
+	REPLACE(REPLACE(u.commissione, '.', ''), ',', '.')::numeric as commissione,
 	u.nazione,
 	REPLACE(REPLACE(u.importo_iva, '.', ''), ',', '.')::numeric as importo_iva,
 	u.pms,
