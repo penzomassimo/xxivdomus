@@ -12,9 +12,14 @@ select
 	f.centro_costo,
 	f.categoria,
 	f.fornitore,
-	CAST(REPLACE(SUBSTRING(f.imponibile FROM '\d+,\d+'), ',', '.') AS NUMERIC) AS imponibile,
-	CAST(REPLACE(SUBSTRING(f.iva FROM '\d+,\d+'), ',', '.') AS NUMERIC) AS iva,
-	CAST(REPLACE(SUBSTRING(f.rit_acconto FROM '\d+,\d+'), ',', '.') AS NUMERIC) as rit_acconto
+	f.num_acquisto,
+	replace(replace(replace(f.imponibile, 'EUR ', ''), '.', ''), ',', '.')::numeric as imponibile,
+	replace(replace(replace(f.iva, 'EUR ', ''), '.', ''), ',', '.')::numeric as iva,
+	case
+		when f.num_acquisto like '%AUT%' then replace(replace(replace(f.imponibile, 'EUR ', ''), '.', ''), ',', '.')::numeric
+		else replace(replace(replace(f.imponibile, 'EUR ', ''), '.', ''), ',', '.')::numeric + replace(replace(replace(f.iva, 'EUR ', ''), '.', ''), ',', '.')::numeric
+	end as totale,
+	replace(replace(replace(f.rit_acconto, 'EUR ', ''), '.', ''), ',', '.')::numeric as rit_acconto
 		
 from {{ source('octorate_prenotazioni', 'fattureincloud_invoices_expenses_sheet_1') }} as f
 
