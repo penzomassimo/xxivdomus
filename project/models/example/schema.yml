@@ -26,3 +26,4 @@ sources:
     tables:
       - name: octorate_prenotazioni_confermate_sheet_1
       - name: fattureincloud_invoices_expenses_sheet_1
+      - name: octorate_occupancy_sheet_1

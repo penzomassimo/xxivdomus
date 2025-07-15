@@ -23,4 +23,3 @@ select
 		
 from {{ source('octorate_prenotazioni', 'fattureincloud_invoices_expenses_sheet_1') }} as f
 
-
