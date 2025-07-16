@@ -20,6 +20,8 @@ select
 	1 as single_capacity,
 	e.single_rooms as single_available,
 	(1 - e.single_rooms) as single_sold,
+
+	6 as total_capacity,
 	
 	e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms as total_availability,
 	(6 - (e.deluxe_double_rooms + e.superior_double_rooms + e.junior_suites + e.single_rooms)) as total_sold,
