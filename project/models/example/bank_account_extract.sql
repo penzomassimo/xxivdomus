@@ -28,6 +28,7 @@ order by to_date(b.data_operazione, 'MM/DD/YY')
 
 
 select
+	row_number() over (order by b.data_operazione_parsed),
 	b.data_operazione_parsed,
 	b.data_operazione_month,
 	b.data_operazione_year,
