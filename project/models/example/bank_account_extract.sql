@@ -1,6 +1,8 @@
 
 {{ config(materialized='table') }}
 
+with cleaned as (
+
 select
 	to_date(b.data_operazione, 'MM/DD/YY') as data_operazione_parsed,
 	extract(month from to_date(b.data_operazione, 'MM/DD/YY')) as data_operazione_month,
@@ -21,3 +23,20 @@ select
 		
 from {{ source('octorate_prenotazioni', 'bank_account_sheet_1') }} as b
 order by to_date(b.data_operazione, 'MM/DD/YY')
+
+)
+
+
+select
+	b.data_operazione_parsed,
+	b.data_operazione_month,
+	b.data_operazione_year,
+	b.data_valuta_parsed,
+	b.data_valuta_month,
+	b.data_valuta_year,
+	b.trx_amount,
+	SUM(b.trx_amount) OVER (
+ 		ORDER BY b.data_operazione_parsed
+    	ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+  		) AS running_balance	
+from cleaned b
