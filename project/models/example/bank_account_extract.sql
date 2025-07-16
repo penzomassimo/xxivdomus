@@ -20,3 +20,4 @@ select
 	END AS trx_amount
 		
 from {{ source('octorate_prenotazioni', 'bank_account_sheet_1') }} as b
+order by to_date(b.data_operazione, 'MM/DD/YY')
