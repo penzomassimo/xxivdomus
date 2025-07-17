@@ -34,6 +34,11 @@ select
 	REPLACE(REPLACE(u.totale, '.', ''), ',', '.')::numeric / u.notti as adr,
 	u.tassa_di_soggiorno,
 	REPLACE(REPLACE(u.commissione, '.', ''), ',', '.')::numeric as commissione,
+	case
+		when REPLACE(REPLACE(u.commissione, '.', ''), ',', '.')::numeric > 0 
+			then (REPLACE(REPLACE(u.commissione, '.', ''), ',', '.')::numeric)/(REPLACE(REPLACE(u.totale, '.', ''), ',', '.')::numeric)
+		else null
+	end as ratio_commissione,
 	u.nazione,
 	REPLACE(REPLACE(u.importo_iva, '.', ''), ',', '.')::numeric as importo_iva,
 	u.pms,
