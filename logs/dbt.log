@@ -1,0 +1,27 @@
+[0m18:29:18.028829 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107541b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1085aed30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1085aea00>]}
+
+
+============================== 18:29:18.033478 | 3f49f542-aa7b-417e-afe1-203d0fad357b ==============================
+[0m18:29:18.033478 [info ] [MainThread]: Running with dbt=1.10.4
+[0m18:29:18.033705 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/Users/massimopenzo/.dbt', 'debug': 'False', 'version_check': 'True', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt init project', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:29:18.039806 [info ] [MainThread]: Creating dbt configuration folder at /Users/massimopenzo/.dbt
+[0m18:29:18.040527 [debug] [MainThread]: Starter project path: /Users/massimopenzo/Library/Mobile Documents/com~apple~CloudDocs/01 Projects/XXIV Domus/tech/dbt_analytics_project/dbt-env/lib/python3.9/site-packages/dbt/include/starter_project
+[0m18:29:18.043319 [info ] [MainThread]: 
+Your new dbt project "project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:29:18.043462 [info ] [MainThread]: Setting up your profile.
+[0m18:33:25.995887 [error] [MainThread]: Encountered an error:
+

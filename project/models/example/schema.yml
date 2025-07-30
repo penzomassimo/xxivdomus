@@ -28,3 +28,4 @@ sources:
       - name: fattureincloud_invoices_expenses_sheet_1
       - name: octorate_occupancy_sheet_1
       - name: bank_account_sheet_1
+      - name: reviews_booking_sheet_1
